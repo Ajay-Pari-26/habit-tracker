@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Logs</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    #content {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📅 Daily Logs</h2>
+  <ul>
+    <li><a href="#" onclick="loadMarkdown('goals/2025-07-17.md')">2025-07-17</a></li>
+    <li><a href="#" onclick="loadMarkdown('goals/2025-07-18.md')">2025-07-18</a></li>
+  </ul>
+
+  <hr>
+
+  <div id="content"><em>Select a date to view the entry</em></div>
+
+  <script>
+    async function loadMarkdown(file) {
+      try {
+        const response = await fetch(file);
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
+        document.getElementById("content").innerHTML = html;
+      } catch (err) {
+        document.getElementById("content").innerHTML = "<b>Error loading file:</b> " + file;
+      }
+    }
+  </script>
+
+</body>
+</html>
