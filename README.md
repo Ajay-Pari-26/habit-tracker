@@ -66,7 +66,8 @@ daily-habits/
 Tomorrow, try Pomodoro timer to stay on track.
 ```
 ## ✅ Example Weekly Summary Entry
-```
+
+```markdown
 # 📊 Weekly Summary – July 14 to July 20, 2025
 
 ## 🌟 Wins This Week:
